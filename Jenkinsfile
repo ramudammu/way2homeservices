@@ -4,14 +4,14 @@ node() {
     
     stage('Unit Tests') {
         sh '''
-            cd asa
+            cd way2home
             mvn clean test
         '''
     }
    
     stage('Create Package') {
         sh '''
-            cd asa
+            cd way2home
             mvn clean package
         '''
         println "Verifying build status and notifying users..."
