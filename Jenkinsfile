@@ -11,7 +11,6 @@ node() {
    
     stage('Create Package') {
         sh '''
-            cd way2home
             mvn clean package
         '''
         println "Verifying build status and notifying users..."
