@@ -15,12 +15,12 @@ pipeline{
     stage('Docker')
     {
       steps{
-        sh 'sudo docker build -t way2home:1.0 . '
+        sh 'docker build -t way2home:1.0 . '
       }
     }
     stage('Deploy') {
       steps{
-        sh 'sudo docker run -dit -p 8091:8080 jetty:9.3.0 '
+        sh 'docker run -dit -p 8091:8080 jetty:9.3.0 '
       }
     }
   }
