@@ -1,28 +1,11 @@
 pipeline{
   agent any
   stages{
-    stage('UnitTest'){
-      steps{
-        sh 'mvn clean test'
-      }
-    }
-    
-    stage('Package'){
-      steps{
-        sh 'mvn clean package'
-      }
-    }
     stage('Docker')
     {
       steps{
-        sh 'docker build -t way2home:2.0 . '
-      }
-    }
-    stage('Deploy') {
-      steps{
-        sh 'docker run -dit -p 8091:8080 way2home:2.0 '
+        sh 'docker build -t way2home:${BUILD_NUMBER} . '
       }
     }
   }
-  
 }
